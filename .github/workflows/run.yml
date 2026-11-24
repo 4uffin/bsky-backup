@@ -37,11 +37,80 @@ jobs:
     - name: Run the scraper
       run: |
         ./run.sh
-    - name: Commit and push
-      run: |-
+    - name: Commit and push in batches
+      run: |
+        # The backup has never pushed successfully: the first push is
+        # ~5,000 files and fails with HTTP 500 / "remote end hung up".
+        # Commit and push in small batches (300 files each) so no single
+        # push carries the whole export. Final repo state is identical
+        # to a single `git add -A` commit; only the history differs.
+        set -e
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
-        git add -A
-        git commit -m "$(date -u)" || exit 0
-        git pull --rebase
-        git push
+        git config http.postBuffer 524288000
+
+        # Warn (do not delete or exclude) about any file over 90 MB:
+        # GitHub rejects files over 100 MB outright and would block a push.
+        echo "Checking for files over 90 MB (GitHub limit is 100 MB)..."
+        find . -path ./.git -prune -o -type f -size +90M -print | while IFS= read -r big; do
+          echo "::warning::File over 90 MB, close to GitHub's 100 MB limit and may block the push: $big ($(du -h "$big" | cut -f1))"
+        done
+
+        push_with_retry() {
+          local attempt=1
+          while [ "$attempt" -le 3 ]; do
+            if git push; then
+              return 0
+            fi
+            echo "::warning::Push attempt $attempt failed; retrying..."
+            if [ "$attempt" -lt 3 ]; then
+              sleep 60
+              # Pull --rebase needs a clean tree, so stash the
+              # not-yet-committed batches, rebase, then restore them.
+              git stash push -m "backup-batch-stash" --include-untracked || true
+              git pull --rebase || true
+              git stash pop || true
+            fi
+            attempt=$((attempt + 1))
+          done
+          echo "Push failed after 3 attempts" >&2
+          return 1
+        }
+
+        # List every changed / new / deleted file individually
+        # (git status collapses untracked directories, so use ls-files),
+        # smallest first so small metadata / .car / .json files go in
+        # the earliest batches and blob files follow in batches.
+        changed_list=$(mktemp)
+        trap 'rm -f "$changed_list"' EXIT
+        : > "$changed_list"
+        while IFS= read -r -d '' path; do
+          if [ -f "$path" ]; then size=$(stat -c%s -- "$path"); else size=0; fi
+          printf '%s\t%s\n' "$size" "$path" >> "$changed_list"
+        done < <(git ls-files --others --modified --deleted --exclude-standard -z)
+        sort -n -t "$(printf '\t')" -k1,1 "$changed_list" -o "$changed_list"
+
+        batch_size=300
+        count=0
+        batch_num=1
+        declare -a batch_files=()
+        commit_batch() {
+          if [ "${#batch_files[@]}" -eq 0 ]; then return 0; fi
+          git add -- "${batch_files[@]}"
+          if git diff --cached --quiet; then
+            echo "Batch $batch_num: nothing staged, skipping"
+            batch_files=(); count=0
+            return 0
+          fi
+          git commit -m "Backup $(date -u +%Y-%m-%dT%H:%M:%SZ) (batch $batch_num)"
+          push_with_retry
+          echo "Batch $batch_num pushed: ${#batch_files[@]} files"
+          batch_files=(); count=0; batch_num=$((batch_num + 1))
+        }
+
+        while IFS="$(printf '\t')" read -r _size path; do
+          batch_files+=("$path"); count=$((count + 1))
+          if [ "$count" -ge "$batch_size" ]; then commit_batch; fi
+        done < "$changed_list"
+        commit_batch
+        echo "Done: $((batch_num - 1)) batch(es) pushed"
