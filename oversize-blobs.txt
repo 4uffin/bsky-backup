@@ -1,0 +1,14 @@
+# Files over GitHub's 100 MB per-file limit, excluded from this backup.
+# Each blob is content-addressed and remains retrievable from Bluesky by its CID.
+# Generated: 2026-11-24T22:47:25Z
+# path<TAB>size_bytes
+4uffin.bsky.social_blobs/bafkreiajd4zd4hch5dxrdcdxajsnukfwi6pyzgrt2tk2mvu5fkf4swaxjq	171422422
+4uffin.bsky.social_blobs/bafkreibnd2fe3bffdw4vwxdhoyatmat7hifsse2k7lfabxjzdlr576nczm	154203201
+4uffin.bsky.social_blobs/bafkreic62d4quwidlivsxx7ekiz227aedjz2xzc3qmgm7kd3pjvkipt2be	124783034
+4uffin.bsky.social_blobs/bafkreidlaohl7bgfn242qxd5coynvj4lvswfu52wlz4qa6lb2ll2u33rla	105915582
+4uffin.bsky.social_blobs/bafkreidnp2x4vw2viki2fsqjm3tmcfp7cgcextxrzyg32psjyyv7mlovoq	112789903
+4uffin.bsky.social_blobs/bafkreifgqi5ywqhugnrl55tyevim2s3w7pkvyuk6vyrhue7y6pag63xfx4	127893034
+4uffin.bsky.social_blobs/bafkreifig5c5nwxlri7gbxnieobedkriw2l2oj75azstz6ly5rmutleqcy	149949276
+4uffin.bsky.social_blobs/bafkreighzn2lyi6xcx66ko62j2b74pwjutdv3l5fyq6enztjrxzqhxq3yi	184004544
+4uffin.bsky.social_blobs/bafkreihbtda3lp77q2x4fhg73vxvy644fnycjvwow5f3hikpz3hixrjns4	184462875
+4uffin.bsky.social_blobs/bafkreihqjteefxgs3ocvc5x6emudfopbsh224sdmfaezgcpm7nfx4u3rua	148203945
