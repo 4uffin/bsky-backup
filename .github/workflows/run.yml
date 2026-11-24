@@ -44,6 +44,9 @@ jobs:
         # Commit and push in small batches (300 files each) so no single
         # push carries the whole export. Final repo state is identical
         # to a single `git add -A` commit; only the history differs.
+        # Files over GitHub's 100 MB per-file limit are excluded from
+        # the push entirely (GitHub rejects any push containing one)
+        # and recorded in oversize-blobs.txt instead.
         set -e
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
@@ -55,6 +58,29 @@ jobs:
         find . -path ./.git -prune -o -type f -size +90M -print | while IFS= read -r big; do
           echo "::warning::File over 90 MB, close to GitHub's 100 MB limit and may block the push: $big ($(du -h "$big" | cut -f1))"
         done
+
+        # Exclude files over 100 MB from the push: GitHub rejects any
+        # push containing one. Record each (path + size) in
+        # oversize-blobs.txt, which IS committed, so they are tracked,
+        # not silently dropped. Each blob is content-addressed, so it
+        # stays retrievable from Bluesky by its CID.
+        oversize_list=$(mktemp)
+        find . -path ./.git -prune -o -type f -size +100M -printf '%P\n' | sort > "$oversize_list"
+        if [ -s "$oversize_list" ]; then
+          {
+            echo "# Files over GitHub's 100 MB per-file limit, excluded from this backup."
+            echo "# Each blob is content-addressed and remains retrievable from Bluesky by its CID."
+            echo "# Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "# path<TAB>size_bytes"
+            while IFS= read -r big; do
+              printf '%s\t%s\n' "$big" "$(stat -c%s -- "$big")"
+            done < "$oversize_list"
+          } > oversize-blobs.txt
+          echo "::warning::$(wc -l < "$oversize_list") file(s) over 100 MB excluded from push; listed in oversize-blobs.txt"
+        else
+          # No oversize files: drop a stale manifest from a previous run, if any.
+          rm -f oversize-blobs.txt
+        fi
 
         push_with_retry() {
           local attempt=1
@@ -81,10 +107,14 @@ jobs:
         # (git status collapses untracked directories, so use ls-files),
         # smallest first so small metadata / .car / .json files go in
         # the earliest batches and blob files follow in batches.
+        # Files over 100 MB are skipped here (see oversize-blobs.txt).
         changed_list=$(mktemp)
-        trap 'rm -f "$changed_list"' EXIT
+        trap 'rm -f "$changed_list" "$oversize_list"' EXIT
         : > "$changed_list"
         while IFS= read -r -d '' path; do
+          if grep -qxF -- "$path" "$oversize_list"; then
+            continue
+          fi
           if [ -f "$path" ]; then size=$(stat -c%s -- "$path"); else size=0; fi
           printf '%s\t%s\n' "$size" "$path" >> "$changed_list"
         done < <(git ls-files --others --modified --deleted --exclude-standard -z)
