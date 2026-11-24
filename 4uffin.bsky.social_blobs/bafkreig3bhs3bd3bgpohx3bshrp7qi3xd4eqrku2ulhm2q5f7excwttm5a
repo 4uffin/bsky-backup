@@ -1,0 +1,143 @@
+/* ==UserStyle==
+@name           Frontpage Basic HTML
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document domain("frontpage.fyi") {
+    /* Insert code here... */
+	
+/* General Styling */
+body {
+  font-family: 'Times New Roman'
+}
+/* General Styling */
+
+/* Main Page */
+
+/* Desktop White Space */
+.__variable_0f8c09 {
+	/*Your code should go under this comment*/
+  background-color: #ffffff;
+}
+
+/* Nav Bar */
+
+/* New Post Button */
+.bg-primary {
+	/*Your code should go under this comment*/
+  background-color: #ffffff;
+  color: #1a73e8;
+  box-shadow: none;
+  cursor: pointer;
+}
+.bg-primary:hover {
+	/*Your code should go under this comment*/
+  background-color: #ffffff;
+  color: #185abc;
+  box-shadow: none;
+}
+/* Notifications Button */
+.border {
+	/*Your code should go under this comment*/
+  background-color: #ffffff;
+  color: #1a73e8;
+  box-shadow: none;
+  border: none;
+}
+.border:hover {
+  background-color: #ffffff;
+  color: #185abc;
+  box-shadow: none;
+  border: none;
+}
+/* User PFP */
+.rounded-full {
+	/*Your code should go under this comment*/
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+/* Nav Bar */
+
+/* Main Feed */
+
+/* Post Container */
+.gap-4:nth-child(n) {
+	/*Your code should go under this comment*/
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+/* Post Link */
+.flex:nth-child(n) .mb-1 > .hover\:underline {
+	/*Your code should go under this comment*/
+  color: #1a73e8;
+}
+.flex:nth-child(n) .mb-1 > .hover\:underline:hover {
+	/*Your code should go under this comment*/
+  color: #185abc;
+}
+
+/* Vote Button */
+.flex:nth-child(n) > .flex > .contents > .inline-flex:hover {
+	/*Your code should go under this comment*/
+  background-color: #ffffff;
+}
+
+/* Main Feed */
+
+/* Notificaions Page */
+
+/* Notification Container */
+.block:nth-child(n) {
+	/*Your code should go under this comment*/
+  background-color: #ffffff;
+}
+
+/* Notification Link */
+.block:nth-child(n) .font-medium {
+	/*Your code should go under this comment*/
+  color: #1a73e8;
+}
+.block:nth-child(n) .font-medium:hover {
+	/*Your code should go under this comment*/
+  color: #185abc;
+  text-decoration: underline;
+}
+
+/* Notifications Page */
+
+/* Profile Page */
+
+/* Sort Nav */
+.bg-muted {
+	/*Your code should go under this comment*/
+  background-color: #ffffff;
+}
+
+/* Profile Page */
+
+/* About Page */
+
+/* About Frontpage Title */
+.text-4xl {
+	/*Your code should go under this comment*/
+  font-family: 'Times New Roman';
+  border-bottom: 1px solid #e9eef4;
+  padding-bottom: 13px;
+}
+
+/* Community Guidelines Title */
+.mt-10 {
+	/*Your code should go under this comment*/
+  font-family: 'Times New Roman';
+}
+
+/* About Page */
+
+}

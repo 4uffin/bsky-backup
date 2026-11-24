@@ -1,0 +1,114 @@
+/* ==UserStyle==
+@name           psky.social Terminal
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document domain("psky.social") {
+    /* Insert code here... */
+    
+/* Main Page */
+
+/* General Styling */
+body {
+  background-color: #000000;
+  font-family: monospace;
+}
+
+.bg-white:nth-child(n) {
+	/*Your code should go under this comment*/
+  background-color: #000000;
+}
+/* General Styling */
+
+/* Feed Column */
+
+/* Users Online */
+.basis-1\/3 > span {
+	/*Your code should go under this comment*/
+  color: #008000;
+}
+
+/* Login/Logout Button */
+.text-red-500 {
+	/*Your code should go under this comment*/
+  color: #008000;
+  background-color: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+  padding: 5px;
+}
+    
+/* Username Input Field */
+#handle {
+	/*Your code should go under this comment*/
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+}
+
+/* nickname Input Field */
+#nickname {
+	/*Your code should go under this comment*/
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+}
+
+/* nickname update Button */
+.bg-stone-600:nth-child(n) {
+	/*Your code should go under this comment*/
+  background-color: #000000;
+  color: #008000;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+}
+
+/* Message Content */
+.post-content {
+	/*Your code should go under this comment*/
+  color: #008000;
+}
+
+/* Message Form */
+#postForm {
+	/*Your code should go under this comment*/
+  border: 1px solid #ffffff;
+  padding: 15px;
+}
+
+/* Message Input Field */
+.z-\[-1\] {
+	/*Your code should go under this comment*/
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+}
+
+/* Main Page */
+
+/* Settings Panel */
+
+/* Settings Container */
+.modal-box {
+	/*Your code should go under this comment*/
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+}
+
+/* Settings Title */
+.text-lg {
+	/*Your code should go under this comment*/
+  color: #008000;
+}
+
+/* Settings Panel */
+    
+}

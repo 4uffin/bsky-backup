@@ -1,0 +1,158 @@
+/* ==UserStyle==
+@name           Frontpage Terminal
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document domain("frontpage.fyi") {
+    /* Insert code here... */
+    
+/* Main Page */
+
+/* General Styling */
+body {
+  font-family: monospace;
+}
+/* General Styling */
+
+/* Desktop Whitespace */
+.__variable_0f8c09 {
+  background-color: #000000;
+}
+
+/* Feed Column */
+.container {
+  background-color: #000000;
+}
+
+/* New Post Button */
+.bg-primary {
+  background-color: #000000;
+  color: #008000;
+  border: 1px solid #ffffff;
+}
+
+.bg-primary:hover {
+  color: #000000;
+}
+
+/* Notifcations Button */
+.border {
+  background-color: #000000;
+  color: #008000;
+  border: 1px solid #ffffff;
+}
+
+/* PFP Menu Button */
+.rounded-full {
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+}
+
+/* Post Container */
+.gap-4:nth-child(n) {
+  background-color: #000000;
+  border: 0px solid #ffffff;
+}
+
+/* Post Title */
+.flex:nth-child(n) .mb-1 {
+  color: #008000;
+  font-family: monospace;
+}
+
+.flex:nth-child(n) .mb-1:hover {
+  color: #ffffff;
+}
+
+/* Buttons Filler */
+.place-content-between > .flex {
+  border: 0px solid #000000;
+}
+
+/* Profile Styling */
+
+/* User Domain */
+.md\:text-2xl {
+  font-family: monospace;
+}
+
+/* User Post Sort */
+.rounded-lg {
+  border-radius: 0px;
+  border: 0px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  background-color: #000000;
+}
+
+/* User Posts */
+.gap-4:nth-child(n) {
+  border-radius: 5px;
+}
+
+/* About Frontpage */
+
+/* Title */
+.text-4xl {
+  font-family: monospace;
+  color: #008000;
+  border-bottom: 1px solid #808080;
+  padding-bottom: 10px;
+}
+
+/* Subtitle */
+.mt-10 {
+  font-family: monospace;
+  color: #008000;
+  border-bottom: 1px solid #808080;
+  padding-bottom: 10px;
+}
+
+/* CC Hyperlink */
+.text-indigo-600 {
+  color: #008000;
+}
+
+/* New Post Form */
+
+/* Title */
+.text-3xl {
+  color: #008000;
+  font-family: monospace;
+}
+
+/* Input Field Label */
+div:nth-child(n) > .font-medium {
+  font-family: monospace;
+}
+
+/* Title Input Field */
+#\:r0\:-title {
+  background-color: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+
+/* URL Input Field */
+#\:r0\:-url {
+  background-color: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+
+/* Submit Post Button */
+.inline-flex:nth-child(n) {
+  font-weight: bold;
+}
+    
+/* Notifications */
+
+/* Title */
+.scroll-m-20 {
+  font-family: monospace;
+  color: #008000;
+}
+    
+}

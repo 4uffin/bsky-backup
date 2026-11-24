@@ -1,0 +1,97 @@
+/* ==UserStyle==
+@name           frontpage.fyi Basic HTML
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Scrappy basic HTML styling
+@author         4uffin
+==/UserStyle== */
+@-moz-document domain("frontpage.fyi") {
+	/* Insert code here... */
+	/* Desktop Whitespace */
+	.source_sans_3_563723c-module__yvnULa__variable {
+		/*Your code should go under this comment*/
+		background-color: DarkGrey;
+	}
+
+	/* New Post Button */
+	.bg-primary {
+		/*Your code should go under this comment*/
+		background-color: White;
+		box-shadow: none;
+		color: Black;
+	}
+	.bg-primary:hover {
+		/*Your code should go under this comment*/
+		background-color: White;
+		box-shadow: none;
+		color: DarkBlue;
+	}
+
+	/* Notifications Button */
+	.border {
+		/*Your code should go under this comment*/
+		background-color: White;
+		box-shadow: none;
+		color: Black;
+	}
+	.border:hover {
+		/*Your code should go under this comment*/
+		background-color: White;
+		box-shadow: none;
+		color: DarkBlue;
+	}
+
+	/* Profile picture */
+	.rounded-full {
+		/*Your code should go under this comment*/
+		border-radius: 5px;
+	}
+
+	.container {
+		/*Your code should go under this comment*/
+		background-color: White;
+	}
+
+	/* Top of Posts */
+	.gap-4:nth-child(n) {
+		/*Your code should go under this comment*/
+		padding: 0px;
+		border-radius: 0px;
+		border-top: 1px solid Black;
+	}
+	.place-content-between > .flex {
+		/*Your code should go under this comment*/
+		border-top: none;
+	}
+
+	/* Post Content */
+	.flex:nth-child(n) .mb-1 > .hover\:underline:hover {
+		/*Your code should go under this comment*/
+		color: DarkBlue;
+	}
+
+	/* Bottom of Posts */
+	.gap-4:nth-child(n) {
+		/*Your code should go under this comment*/
+		box-shadow: none;
+	}
+
+	/* Profile Filter */
+	.bg-muted {
+		/*Your code should go under this comment*/
+		box-shadow: none;
+		background-color: White;
+	}
+	.bg-muted:hover {
+		/*Your code should go under this comment*/
+		box-shadow: none;
+		background-color: White;
+		color: DarkBlue;
+	}
+
+	/* Notification Body */
+	.block:nth-child(n) {
+		/*Your code should go under this comment*/
+		background-color: White;
+	}
+}

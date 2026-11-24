@@ -1,0 +1,26 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/multikey/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
+  ],
+  "id": "did:plc:h4s4kqqg2d2f7m4337244vyj",
+  "alsoKnownAs": [
+    "at://4uffin.bsky.social"
+  ],
+  "verificationMethod": [
+    {
+      "id": "did:plc:h4s4kqqg2d2f7m4337244vyj#atproto",
+      "type": "Multikey",
+      "controller": "did:plc:h4s4kqqg2d2f7m4337244vyj",
+      "publicKeyMultibase": "zQ3shpuV7ZXRfKsxuykxgyMrLsUUS14iwvd7SgU23FsaYUhAa"
+    }
+  ],
+  "service": [
+    {
+      "id": "#atproto_pds",
+      "type": "AtprotoPersonalDataServer",
+      "serviceEndpoint": "https://oyster.us-east.host.bsky.network"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+# ATProtocol Lingo and Slang Glossary
+
+*A snapshot of the main terms used across the AT Protocol and the Bluesky community. Slang shifts constantly, so treat this as a starting point rather than a definitive reference.*
+
+## Protocol and architecture terms
+
+- **AT Protocol / atproto**: the open protocol Bluesky is built on. "AT" is short for "Authenticated Transfer," and it's also a pun on the @ symbol.
+- **PDS (Personal Data Server)**: the server that hosts your repo and signs your data.
+- **Relay** (formerly **BGS**, Big Graph Service): aggregates data from many PDSs into a single stream.
+- **Firehose**: the full real-time stream of commits from a relay.
+- **Jetstream**: a lighter JSON version of the firehose.
+- **AppView**: the service that indexes data and serves an app's views (`app.bsky.*` is Bluesky's).
+- **Feed generator / custom feed**: a service that returns a list of post URIs, which the AppView then hydrates.
+- **Labeler**: a service that publishes moderation labels. **Ozone** is Bluesky's open-source labeling and moderation tool.
+- **Entryway**: Bluesky's front-door auth service for its hosted PDSs.
+- **Repo**: your signed collection of records.
+- **Collection**: a record type within a repo, like `app.bsky.feed.post`.
+- **Record / rkey**: a single data object, and its key within a collection.
+- **Lexicon**: the schema language that defines record types and API methods.
+- **NSID (Namespaced Identifier)**: reverse-DNS names like `app.bsky.feed.post`.
+- **XRPC**: the HTTP-based RPC layer (queries and procedures).
+- **DID (Decentralized Identifier)**: your permanent identity. The two main methods are **did:plc** and **did:web**.
+- **PLC directory**: the registry that resolves `did:plc` identifiers. PLC originally stood for "Placeholder" and was later redefined as "Public Ledger of Credentials."
+- **Handle**: your human-readable name, which is a DNS domain (e.g. `you.bsky.social` or `yourdomain.com`).
+- **AT URI**: `at://did-or-handle/collection/rkey`.
+- **CID (Content Identifier)**: a hash-based content address.
+- **TID (Timestamp Identifier)**: a time-based rkey format.
+- **MST (Merkle Search Tree)**: the data structure that stores repos.
+- **CAR file**: Content Addressable aRchive, the export format for repos and blocks.
+- **Commit**: a signed repo revision.
+- **Blob**: binary data like images and video, stored separately from records.
+- **Threadgate / Postgate**: records that control who can reply to or quote a post.
+- **Account migration / PDS moover**: moving your account between PDSs.
+- **App password**: a limited-scope credential for third-party apps, increasingly replaced by OAuth.
+
+## Philosophy and marketing terms
+
+- **Credible exit**: the idea that you can leave a provider without losing your identity or social graph.
+- **Account portability**: your data and identity travel with you.
+- **Algorithmic choice**: users choose their own feeds.
+- **Speech vs. reach**: the protocol handles speech, while the app layer handles reach and ranking.
+- **Composable / stackable moderation**: layering multiple labelers and mute lists.
+- **The Atmosphere / ATmosphere**: the community's name for the whole ecosystem. People who build in it are sometimes called "Atmosphereans," and there's an annual ATmosphereConf.
+- **Sky-naming**: the heavy convention of naming tools "\_\_\_sky" (Skyfeed, Skyline, Blacksky, Northsky, Eurosky, etc.).
+
+## Social slang and community culture
+
+- **Skeet**: a post, from "sky" + "tweet." It's contested. Many people embraced it early, but it was dropped by the company and some find it off-putting for unrelated reasons, so it's divisive.
+- **Reskeet**: a repost.
+- **Quote / quote-dunk**: quote-posting something, often to mock it.
+- **Bsky**: the common abbreviation for Bluesky.
+- **Bluesky Social PBC**: the public benefit corporation behind it.
+- **The butterfly**: the logo and mascot.
+- **Birdsite / the hellsite / X**: Twitter and its successor.
+- **Hellthread**: the notorious mega-thread where participants were mentioned by the hundreds or thousands.
+- **Starter pack**: a curated list of accounts you can follow in one click.
+- **Follow train**: a thread where people follow each other en masse.
+- **Mutuals / moots**: people who follow each other.
+- **Mute list / block list / moderation list**: shareable lists that others can subscribe to.
+- **Main character**: the person everyone's talking (usually arguing) about that day, carried over from Twitter.
+- **Discourse**: the endless argument cycle around moderation, blocks, and "that one post."
+- **Custom domain handle**: using your own domain as your handle, a status symbol for some.
+- **Discover / Following / Popular with Friends**: the default feed names.
+
+## Ecosystem and apps you'll hear mentioned
+
+Third-party projects come up constantly in conversation:
+
+- **Bridgy Fed**: bridge to the Fediverse.
+- **Graze** and **Skyfeed**: feed builders.
+- **Blacksky**: a community-focused project and app in the ecosystem.
+- **Smoke Signal**: events.
+- **Leaflet** and **WhiteWind**: blogging.
+- **Tangled**: git hosting.
+- **Frontpage**: link aggregator.
+- **Teal.fm**: music scrobbling.
+- **Statusphere**: a popular tutorial app.

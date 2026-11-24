@@ -1,0 +1,19 @@
+{
+  "did": "did:plc:h4s4kqqg2d2f7m4337244vyj",
+  "verificationMethods": {
+    "atproto": "did:key:zQ3shpuV7ZXRfKsxuykxgyMrLsUUS14iwvd7SgU23FsaYUhAa"
+  },
+  "rotationKeys": [
+    "did:key:zQ3shhCGUqDKjStzuDxPkTxN6ujddP4RkEKJJouJGRRkaLGbg",
+    "did:key:zQ3shpKnbdPx3g3CmPf5cRVTPe1HtSwVn5ish3wSnDPQCbLJK"
+  ],
+  "alsoKnownAs": [
+    "at://4uffin.bsky.social"
+  ],
+  "services": {
+    "atproto_pds": {
+      "type": "AtprotoPersonalDataServer",
+      "endpoint": "https://oyster.us-east.host.bsky.network"
+    }
+  }
+}
